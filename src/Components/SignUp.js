@@ -64,7 +64,7 @@ export default function SignUp(){
               goahead=false;
             }
             if(goahead){
-              const {data}= await axios.post("https://reliable-pastelito-14421e.netlify.app/signup",{...sign});
+              const {data}= await axios.post("https://reliable-pastelito-14421e.netlify.app//signup",{...sign});
               if(data){
                 if(data.errors){
                   const {email, mobile} = data.errors;
