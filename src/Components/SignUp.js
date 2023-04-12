@@ -29,7 +29,7 @@ export default function SignUp(){
       document.getElementById('emailred').innerHTML ="";
       document.getElementById('mobilered').innerHTML ="";
       if(verified){
-        const {data} = await axios.post('http://localhost:3001/create',{...sign});
+        const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/create',{...sign});
         if(data.status === "Registered"){
           Navigate('/login');
         }

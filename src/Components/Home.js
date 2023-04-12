@@ -9,7 +9,7 @@ export default function Home(){
     }
     useEffect(()=>{
         async function getImages(){
-            const {data} = await axios.post('http://localhost:3001/downloadlabel')
+            const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/downloadlabel')
             setImages(data.images);
         }
         getImages();
