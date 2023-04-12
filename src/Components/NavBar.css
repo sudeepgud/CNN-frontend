@@ -1,0 +1,13 @@
+.navbar{
+    background-color: rgb(255, 0, 128);
+}
+.btn>.nav-link{
+    border-radius: 15px;
+    min-width: 90px;
+    color:white;
+}
+.btn>.nav-link:hover{
+    color:rgb(255, 0, 128);
+    background-color: white;
+    transition-duration: 0.35s;
+}
