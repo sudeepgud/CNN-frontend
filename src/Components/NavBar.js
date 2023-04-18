@@ -5,11 +5,11 @@ import Cookies from 'js-cookie';
 export default function NavBar(){
     const Navigate = useNavigate();
     let isUser = false;
-    if(document.cookie.match('jwt')!=null){
+    if(localStorage.getItem('jwt')!=null){
         isUser = true;
     }
     function LogOut(e){
-        Cookies.remove('jwt');
+        localStorage.removeItem('jwt');
         Navigate('/');
     }
     return(

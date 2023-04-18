@@ -12,7 +12,7 @@ export default function Login(){
     const handleSubmit = async(event)=>{
         event.preventDefault();
         try{
-            const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/login',{...log},{withCredentials:true})
+            const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/login',{...log})
             if(data.email){
                 document.getElementById('emailred').innerHTML = data.email;
             }
@@ -20,6 +20,8 @@ export default function Login(){
                 document.getElementById('passred').innerHTML = data.pass;
             }
             if(data.status === "Login"){
+                let {token} = data;
+                localStorage.setItem('jwt',token);
                 Navigate('/');
             }
         }catch(err){
