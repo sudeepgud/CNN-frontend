@@ -1,6 +1,5 @@
 import {Link,useNavigate,Outlet} from 'react-router-dom';
 import './NavBar.css';
-import Cookies from 'js-cookie';
 
 export default function NavBar(){
     const Navigate = useNavigate();
