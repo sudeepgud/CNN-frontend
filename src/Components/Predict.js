@@ -40,7 +40,7 @@ export default function Predict(){
             prediction: prediction,
             label: correct
         }
-        const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/uploadlabel',sendImage);
+        const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/uploadlabel',sendImage);
         if(data.status === "ok"){
             Navigate('/');
         }
@@ -52,7 +52,7 @@ export default function Predict(){
         if(file){
             const formData = new FormData();
             formData.append("image",file);
-            const {data} = await axios.post("https://reliable-pastelito-14421e.netlify.app/predict",formData);
+            const {data} = await axios.post(process.env.REACT_APP_MALARIA_MODEL,formData);
             if(data){
                 setOutput(data.prediction);
                 setPredicted(true);

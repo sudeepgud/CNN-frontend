@@ -29,7 +29,7 @@ export default function SignUp(){
       document.getElementById('emailred').innerHTML ="";
       document.getElementById('mobilered').innerHTML ="";
       if(verified){
-        const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/create',{...sign});
+        const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/create',{...sign});
         if(data.status === "Registered"){
           Navigate('/login');
         }
@@ -38,7 +38,7 @@ export default function SignUp(){
         if(OTP){
           document.getElementById('otpred').innerHTML="";
           console.log({...sign,otp:verify});
-          const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/verifyotp',{...sign,otp:verify});
+          const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/verifyotp',{...sign,otp:verify});
           if(data.status==="Invalid OTP"){
             setVerified(false);
             document.getElementById('otpred').innerHTML = "Invalid OTP";
@@ -64,7 +64,7 @@ export default function SignUp(){
               goahead=false;
             }
             if(goahead){
-              const {data}= await axios.post("https://reliable-pastelito-14421e.netlify.app//signup",{...sign});
+              const {data}= await axios.post(process.env.REACT_APP_BACKEND_URL+"/signup",{...sign});
               if(data){
                 if(data.errors){
                   const {email, mobile} = data.errors;
@@ -75,7 +75,7 @@ export default function SignUp(){
               if(data){
                 document.getElementById('otpgen').innerHTML="Generating<div class='ms-2 spinner-border spinner-border-sm' role='status'><span class='visually-hidden'>Loading...</span></div>";
                 if(data.status === "ok"){
-                  const {data} = await axios.post("https://reliable-pastelito-14421e.netlify.app/otp",{...sign});
+                  const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+"/otp",{...sign});
                   if(data.status === "OTP Generated"){
                     enterOTP(true);
                     document.getElementById('otpred').innerHTML = "";

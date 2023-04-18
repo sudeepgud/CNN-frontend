@@ -12,7 +12,7 @@ export default function Login(){
     const handleSubmit = async(event)=>{
         event.preventDefault();
         try{
-            const {data} = await axios.post('https://reliable-pastelito-14421e.netlify.app/login',{...log},{withCredentials:true})
+            const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/login',{...log},{withCredentials:true})
             if(data.email){
                 document.getElementById('emailred').innerHTML = data.email;
             }
