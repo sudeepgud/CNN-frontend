@@ -52,8 +52,7 @@ export default function Predict(){
         if(file){
             const formData = new FormData();
             formData.append("image",file);
-            console.log(process.env.REACT_APP_MALARIA_PREDICT)
-            const {data} = await axios.post(process.env.REACT_APP_MALARIA_PREDICT,formData);
+            const {data} = await axios.post("https://e844-65-0-185-220.ngrok-free.app/predict",formData);
             if(data){
                 setOutput(data.prediction);
                 setPredicted(true);
