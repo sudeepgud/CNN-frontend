@@ -4,13 +4,13 @@ import axios from 'axios';
 export default function Home(){
     const [images,setImages] = useState([]);
     let isUser = false;
+    if(localStorage.getItem('jwt')!=null){
+        isUser = true;
+    }else{
+        isUser = false;
+    }
     useEffect(()=>{
         async function getImages(){
-            if(localStorage.getItem('jwt')!=null){
-                isUser = true;
-            }else{
-                isUser = false;
-            }
             const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/downloadlabel')
             setImages(data.images);
         }
