@@ -8,6 +8,8 @@ export default function Home(){
         async function getImages(){
             if(localStorage.getItem('jwt')!=null){
                 isUser = true;
+            }else{
+                isUser = false;
             }
             const {data} = await axios.post(process.env.REACT_APP_BACKEND_URL+'/downloadlabel')
             setImages(data.images);
