@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function Home(){
     const [images,setImages] = useState([]);
     let isUser = false;
-    if(document.cookie.match(('jwt'))!=null){
+    if(localStorage.getItem('jwt')!=null){
         isUser = true;
     }
     useEffect(()=>{
